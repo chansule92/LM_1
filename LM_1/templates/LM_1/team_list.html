@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+{% if team_list %}
+    <ul>
+      <table border=0 width=100%>
+      <thead><tr align=left><th >Name</th><th>League</th>
+      </thead><tr></tr><tr></tr><tr></tr>
+    {% for team in team_list %}
+
+
+    <tbody>
+      <tr>
+        <td>
+          <a href="{% url 'LM_1:team_detail' team.id %}">{{ team.name }}</a></td>
+          <td>{{ team.league }}</td>
+        </tr>
+
+
+    {% endfor %}
+  </tbody></table>
+    </ul>
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}
+</div>
+{% endblock %}

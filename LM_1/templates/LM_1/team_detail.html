@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="gridcontents">
+  <div class="item1" align=center>
+    <div align=left>구단정보<br><div align=center>
+        <img src="/static/img/{{ team_content.league }}/{{ team_content.name }}.png" width=300px height=200px></div>
+    </div><br>
+    <div>
+      <img src="/static/img/{{ team_content.league }}/{{ team_content.nation }}.png" width=100px height=66px align=center>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="/static/img/{{ team_content.league }}/{{ team_content.league }}.png" width=100px height=77px align=center>
+    </div>
+  </div>
+  <div class="item2">
+    <div align=left>주요인물</div><br>
+        <table border=0><th>Top</th><th>Jungle</th><th>Mid</th><th>Bot</th><th>Support</th>
+          <tr>
+            <td><img src="image\roach.png" width=110px height=100px></td>
+      <td><img src="image\cuzz.png" width=110px height=100px></td>
+      <td><img src="image\faker.png" width=110px height=100px></td>
+      <td><img src="image\teddy.png" width=110px height=100px></td>
+      <td><img src="image\effort.png" width=110px height=100px></td></tr>
+      <tr align=center><td>Canna</td><td>Cuzz</td><td>Faker</td><td>Teddy</td><td>Effort</td></tr>
+      <tr align=center><td><img src="/static/img/{{ team_content.league }}/{{ team_content.nation }}.png" width=30px height=20px></td><td><img src="/static/img/{{ team_content.league }}/{{ team_content.nation }}.png" width=30px height=20px></td><td><img src="/static/img/{{ team_content.league }}/{{ team_content.nation }}.png" width=30px height=20px></td><td><img src="/static/img/{{ team_content.league }}/{{ team_content.nation }}.png" width=30px height=20px></td><td><img src="/static/img/{{ team_content.league }}/{{ team_content.nation }}.png" width=30px height=20px></td></tr><tr align=center><td>KOR</td><td>KOR</td><td>KOR</td><td>KOR</td><td>KOR</td></tr>
+    </table>
+  </div>
+  <div class="item3">
+    명예의 전당<p>
+    <table border=0>
+      <th></th><tr>
+    <td><img src="image\worlds.png" width=110px height=100px></td><td><img src="image\{{ team_content.league }}.png" width=100px height=100px></td><td><img src="image\msi.png" width=130px height=100px></td><td><img src="image\riftrivals.png" width=130px height=100px></td><tr align=center><td>3</td><td>6</td><td>2</td><td>1</td></tr>
+  </table>
+  </div>
+  <div class="item4">
+    <div align=center>
+      국제대회<br>
+      Worlds, MSI<br><br><br>
+      상징인물<br>
+      Kkoma, Faker, Bengi, Bang, Wolf
+    </div>
+
+  </div>
+  <div class="item5">
+    <li>팀내 랭킹 </li><br>
+    <li>MVP</li><br>
+    <li>Kill</li><br>
+    <li>AS</li><br></div>
+  <div class="item6">리그역사</div>
+  <div class="item7"></div>
+  <div class="item8">최근경기</div>
+  <div class="item9">지역
+  </div>
+</div>
+<div>
+{{ team_content.name }}
+
+
+{{ team_content.league }}
+
+
+</div>
+{% endblock %}

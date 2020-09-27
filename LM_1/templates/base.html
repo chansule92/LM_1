@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+  <style>
+  .titlecolor{background-color:rgba(60,60,60);}
+  }
+  </style>
+<title>LOL Manager</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'homestyle.css' %}">
+</head>
+<body>
+
+<h1 class="titlecolor"><a href="index"><img src="/static/img/lol icon.png" width=46px height=46px align=left>&nbsp;League of Legend</a></h1>
+<h2 class="titlecolor">
+  <a href="#">LCK&nbsp;&nbsp;&nbsp;&nbsp;</a>
+  <a href="#">LPL&nbsp;&nbsp;&nbsp;&nbsp;</a>
+  <a href="#">LEC&nbsp;&nbsp;&nbsp;&nbsp;</a>
+  <a href="#">LCS&nbsp;&nbsp;&nbsp;</a></h2>
+<div class="menu">
+<ol>
+  <li><a href="index"><img src="/static/img/menu/홈.png" width=24px height=24px align=left>&nbsp;홈</a></li><br>
+  <li><a href="team"><img src="/static/img/menu/구단.png" width=24px height=24px align=left>&nbsp;구단</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/선수단.png" width=24px height=24px align=left>&nbsp;선수단</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/주요일정.png" width=24px height=24px align=left>&nbsp;주요 일정</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/대회.png" width=24px height=24px align=left>&nbsp;대회</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/전술.png" width=24px height=24px align=left>&nbsp;전술</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/팀전력.png" width=24px height=24p align=leftx>&nbsp;팀 전력</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/스탭.png" width=24px height=24px align=left>&nbsp;스탭</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/이적상황.png" width=24px height=24px align=left>&nbsp;이적상황</a></li><br>
+  <li><a href="#"><img src="/static/img/menu/수신함.png" width=24px height=24px align=left>&nbsp;수신함</a></li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</ol>
+  {% block content %}
+  {% endblock %}
+</div>
+
+</body>
+</html>
