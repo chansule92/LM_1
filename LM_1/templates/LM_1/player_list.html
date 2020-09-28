@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+{% if player_list %}
+    <ul>
+      <table border=0 width=100%>
+      <thead><tr align=left><th >ID</th><th>Position</th><th>Name</th><th>Team</th>
+      </thead><tr></tr><tr></tr><tr></tr>
+    {% for player in player_list %}
+
+
+    <tbody>
+      <tr>
+        <td>
+          <a href="{% url 'LM_1:player_detail' player.id %}">{{ player.nick }}</a></td>
+          <td>{{ player.position }}</td><td>{{ player.name }}</td><td>{{ player.team }}</td>
+        </tr>
+
+
+    {% endfor %}
+  </tbody></table>
+    </ul>
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}
+</div>
+{% endblock %}

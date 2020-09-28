@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<h1 class="titlecolor"><a href="index"><img src="/static/img/lol icon.png" width=46px height=46px align=left>&nbsp;League of Legend</a></h1>
+<h1 class="titlecolor"><a href="{% url 'LM_1:index' %}"><img src="/static/img/lol icon.png" width=46px height=46px align=left>&nbsp;League of Legend</a></h1>
 <h2 class="titlecolor">
   <a href="#">LCK&nbsp;&nbsp;&nbsp;&nbsp;</a>
   <a href="#">LPL&nbsp;&nbsp;&nbsp;&nbsp;</a>
@@ -22,9 +22,9 @@
   <a href="#">LCS&nbsp;&nbsp;&nbsp;</a></h2>
 <div class="menu">
 <ol>
-  <li><a href="index"><img src="/static/img/menu/홈.png" width=24px height=24px align=left>&nbsp;홈</a></li><br>
-  <li><a href="team"><img src="/static/img/menu/구단.png" width=24px height=24px align=left>&nbsp;구단</a></li><br>
-  <li><a href="#"><img src="/static/img/menu/선수단.png" width=24px height=24px align=left>&nbsp;선수단</a></li><br>
+  <li><a href="{% url 'LM_1:index' %}"><img src="/static/img/menu/홈.png" width=24px height=24px align=left>&nbsp;홈</a></li><br>
+  <li><a href="{% url 'LM_1:team_index' %}"><img src="/static/img/menu/구단.png" width=24px height=24px align=left>&nbsp;구단</a></li><br>
+  <li><a href="{% url 'LM_1:player_index' %}"><img src="/static/img/menu/선수단.png" width=24px height=24px align=left>&nbsp;선수단</a></li><br>
   <li><a href="#"><img src="/static/img/menu/주요일정.png" width=24px height=24px align=left>&nbsp;주요 일정</a></li><br>
   <li><a href="#"><img src="/static/img/menu/대회.png" width=24px height=24px align=left>&nbsp;대회</a></li><br>
   <li><a href="#"><img src="/static/img/menu/전술.png" width=24px height=24px align=left>&nbsp;전술</a></li><br>
