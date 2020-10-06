@@ -10,4 +10,6 @@ urlpatterns = [
     path('team/<int:team_id>/', views.team_detail, name='team_detail'),
     path('player', views.player_index, name='player_index'),
     path('player/<int:player_id>/', views.player_detail, name='player_detail'),
+    path('league', views.league_index, name='league_index'),
+
 ]

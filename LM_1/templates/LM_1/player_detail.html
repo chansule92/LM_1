@@ -6,10 +6,10 @@
         <img src="/static/img/player/실루엣.png" width=222px height=200px></div>
 
     </div><br>
-    Faker
+    {{ player_content.nick }}
     <div>
       <table border=0 >
-        <th></th><tr><td><img src="/static/img/LCK/LCK.png" width=80px height=66px align=center></td><td><img src="/static/img/LCK/T1.png" width=80px height=66px align=center></td><td>출장 횟수</td></tr><tr align=center><td></td><td></td><td>22회</td></tr></table>
+        <th></th><tr><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.nation }}.png" width=80px height=60px align=center></td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>출장 횟수</td></tr><tr align=center><td></td><td></td><td>22회</td></tr></table>
 
     </div>
   </div>
@@ -20,7 +20,7 @@
   <div class="item3">
     구단
     <table border=0>
-      <th align=center>구단</th><th></th><th></th><th>경기수</th><tr><td>2020</td><td><img src="/static/img/LCK/T1.png" width=80px height=66px align=center></td><td>T1</td><td align=center>97</td></tr>
+      <th align=center>구단</th><th></th><th></th><th>경기수</th><tr><td>2020</td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>T1</td><td align=center>97</td></tr>
     </table>
 
     </table>
@@ -28,7 +28,7 @@
   <div class="item4">
     <div align=center>
       <table border=0>
-        <th></th><tr><td>포지션</td><td>나이</td></tr><tr><td>Mid</td><td>25</td></tr></table>
+        <th></th><tr><td>포지션</td><td>나이</td></tr><tr><td>{{ player_content.position }}</td><td>25</td></tr></table>
         <br><br>
 
       주 챔피언<br>
@@ -41,7 +41,7 @@
     준비중</div>
   <div class="item6">선수경력 업적
     <table border=0>
-      <th align=center>구단</th><th></th><th></th><th></th><tr><td>2020</td><td><img src="/static/img/LCK/T1.png" width=80px height=66px align=center></td><td>T1</td><td align=center>LOL Championship Korea Win</td></tr>
+      <th align=center>구단</th><th></th><th></th><th></th><tr><td>2020</td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>T1</td><td align=center>LOL Championship Korea Win</td></tr>
     </table>
 
   </div>
