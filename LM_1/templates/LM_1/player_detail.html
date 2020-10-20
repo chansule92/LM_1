@@ -9,12 +9,13 @@
     {{ player_content.nick }}<br>{{ player_content.name }}
     <div>
       <table border=0 >
-        <th></th><tr><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.nation }}.png" width=80px height=60px align=center></td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>출장 횟수</td></tr><tr align=center><td></td><td></td><td>22회</td></tr></table>
+        <th></th><tr><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.nation }}.png" width=80px height=60px align=center></td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>출장 횟수</td></tr><tr align=center><td></td><td></td><td>{{n.Count}}회</td></tr></table>
 
     </div>
   </div>
   <div class="item2">
-    <div align=center>준비중</div><br>
+
+    <div align=center></div><br>
 
   </div>
   <div class="item3">
@@ -47,7 +48,7 @@
   </div>
   <div class="item7"></div>
   <div class="item8" align=center>
-    <table border=1><th>대회</th><th>경기</th><th>킬</th><th>도움</th><th>MVP</th><tr><td>LCK</td><td></td><td></td><td></td><td></td></tr><tr><td>MSI</td><td></td><td></td><td></td><td></td></tr><tr><td>Worlds</td><td></td><td></td><td></td><td></td></tr></table>
+    <table border=1><th>대회</th><th>경기</th><th>킬</th><th>도움</th><th>MVP</th><tr><td>LCK</td><td> {{n.count}}1</td><td>2</td><td></td><td></td></tr><tr><td>MSI</td><td></td><td></td><td></td><td></td></tr><tr><td>Worlds</td><td></td><td></td><td></td><td></td></tr></table>
 
   </div>
   <div class="item9">

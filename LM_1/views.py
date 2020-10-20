@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import team,player
-
+from .models import team,player,game,game_detail
+from django.db.models import Count, Sum, F
 
 def index(request):
 
@@ -31,6 +31,9 @@ def player_detail(request, player_id):
 
     player_content = player.objects.get(id=player_id)
     context = {'player_content': player_content}
+    n=game_detail.objects.filter(nick='players.Nick').annotate(count = Count('nick'))
+
+    kill = game_detail.objects.values('nick').annotate(total_kill=Sum('Kill'))
     return render(request, 'LM_1/player_detail.html', context)
 
 def league_index(request):
