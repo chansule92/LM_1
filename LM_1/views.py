@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import team,player,game,game_detail
+from .models import team,player,game,game_detail,game_entire
 from django.db.models import Count, Sum
 
 def index(request):
@@ -42,3 +42,9 @@ def league_index(request):
     team_list = team.objects.order_by('league').distinct()
     context = {'team_list': team_list}
     return render(request, 'LM_1/league_list.html', context)
+
+def schedule_index(request):
+
+    schedule_list = game_entire.objects.order_by('date')
+    context = {'schedule_list': schedule_list}
+    return render(request, 'LM_1/schedule.html', context)

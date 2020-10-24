@@ -18,6 +18,12 @@ class player(models.Model):
     position = models.CharField(max_length=20)
     nation = models.CharField(max_length=20)
 
+class game_entire(models.Model):
+    date = models.DateField()
+    home = models.CharField(max_length=20)
+    homescore = models.IntegerField(1)
+    away = models.CharField(max_length=20)
+    awayscore = models.IntegerField(4)
 
 
 class game(models.Model):
