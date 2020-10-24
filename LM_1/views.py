@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import team,player,game,game_detail
-from django.db.models import Count, Sum
+from django.db.models import Count, Sum, connections
 
 def index(request):
 

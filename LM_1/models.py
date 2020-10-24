@@ -31,7 +31,7 @@ class game(models.Model):
 
 
 class game_detail(models.Model):
-    number = models.IntegerField(10)
+    number = models.ForeignKey(game,on_delete=models.CASCADE)
     nick = models.CharField(max_length=20)
     champion = models.CharField(max_length=20)
     Kill = models.IntegerField(3)
