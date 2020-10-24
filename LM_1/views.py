@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import team,player,game,game_detail,game_entire
 from django.db.models import Count, Sum
-
 def index(request):
 
     return render(request, 'LM_1/index.html')
