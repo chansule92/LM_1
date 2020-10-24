@@ -22,7 +22,7 @@ def team_detail(request, team_id):
 
 def player_index(request):
 
-    player_list = player.objects.order_by('-nick')
+    player_list = player.objects.order_by('nick')
     context = {'player_list': player_list}
     return render(request, 'LM_1/player_list.html', context)
 
@@ -30,9 +30,11 @@ def player_index(request):
 def player_detail(request, player_id):
 
     player_content = player.objects.get(id=player_id)
-    context = {'player_content': player_content}
+    play = game_detail.objects.values_list('nick').filter(nick = player_content.nick).annotate(total_play=Count('number'))
+    kill = game_detail.objects.values_list('nick').filter(nick = player_content.nick).annotate(total_kill=Sum('Kill'))
+    most = game_detail.objects.values('champion').filter(nick = player_content.nick).annotate(most_champion=Count('champion')).order_by('-most_champion')[:5]
 
-    kill = game_detail.objects.values('nick').annotate(total_kill=Sum('Kill'))
+    context = {'player_content': player_content,'play':play, 'kill':kill, 'most':most}
     return render(request, 'LM_1/player_detail.html', context)
 
 def league_index(request):

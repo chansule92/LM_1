@@ -9,19 +9,21 @@
     {{ player_content.nick }}<br>{{ player_content.name }}
     <div>
       <table border=0 >
-        <th></th><tr><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.nation }}.png" width=80px height=60px align=center></td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>출장 횟수</td></tr><tr align=center><td></td><td></td><td>{{n.Count}}회</td></tr></table>
+        <th></th><tr><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.nation }}.png" width=80px height=60px align=center></td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>출장 횟수</td></tr><tr align=center><td>{{player_content.nation}}</td><td>{{ player_content.team.name }}</td><td>{{play.0.1}}회</td></tr></table>
 
     </div>
   </div>
   <div class="item2">
 
-    <div align=center></div><br>
+
+
+    <div align=center>준비중</div><br>
 
   </div>
   <div class="item3">
     구단
-    <table border=0>
-      <th align=center>구단</th><th></th><th></th><th>경기수</th><tr><td>2020</td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>T1</td><td align=center>97</td></tr>
+    <table border=0 >
+      <th align=center>구단</th><th></th><th></th><th>경기수</th><tr><td>2020</td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>{{ player_content.team.name }}</td><td align=center>{{play.0.1}}</td></tr>
     </table>
 
     </table>
@@ -29,12 +31,25 @@
   <div class="item4">
     <div align=center>
       <table border=0>
-        <th></th><tr><td>포지션</td><td>나이</td></tr><tr><td>{{ player_content.position }}</td><td>25</td></tr></table>
+        <th></th><tr><td align=center>포지션</td><td align=center>나이</td></tr><tr><td>
+          {{ player_content.position }} </td><td align=center>25</td></tr></table>
         <br><br>
 
       주 챔피언<br>
       <table border=0>
-        <th></th><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr></table>
+        <th></th><tr>
+          {% for most in most %}
+
+            <td><img src="/static/img/champion/{{ most.champion }}.png" width=66px height=66px></td>
+
+          {% endfor %}
+        </tr><tr>
+          {% for most in most %}
+
+            <td align=center>{{most.most_champion}}</td>
+
+          {% endfor %}
+        </tr></table>
     </div>
 
   </div>
@@ -42,13 +57,13 @@
     준비중</div>
   <div class="item6">선수경력 업적
     <table border=0>
-      <th align=center>구단</th><th></th><th></th><th></th><tr><td>2020</td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>T1</td><td align=center>LOL Championship Korea Win</td></tr>
+      <th align=center>구단</th><th></th><th></th><th></th><tr><td>2020</td><td><img src="/static/img/{{ player_content.team.league }}/{{ player_content.team.name }}.png" width=80px height=66px align=center></td><td>{{ player_content.team.name }}</td><td align=center>LOL Championship Korea Win</td></tr>
     </table>
 
   </div>
   <div class="item7"></div>
   <div class="item8" align=center>
-    <table border=1><th>대회</th><th>경기</th><th>킬</th><th>도움</th><th>MVP</th><tr><td>LCK</td><td> {{n.count}}1</td><td>2</td><td></td><td></td></tr><tr><td>MSI</td><td></td><td></td><td></td><td></td></tr><tr><td>Worlds</td><td></td><td></td><td></td><td></td></tr></table>
+    <table border=0><th>대회</th><th>경기</th><th>킬</th><th>도움</th><th>MVP</th><tr><td>LCK</td><td>{{play.0.1}}</td><td>{{ kill.0.1 }}</td><td></td><td></td></tr><tr><td>MSI</td><td></td><td></td><td></td><td></td></tr><tr><td>Worlds</td><td></td><td></td><td></td><td></td></tr></table>
 
   </div>
   <div class="item9">
