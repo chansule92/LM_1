@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="gridcontents">
+<div class="item1">
+  <table border=0><tr><td><img src="/static/img/LCK/LCK.png" width=100px height=82px></td><td>
+
+    Winner<br><br><a><img src="/static/img/LCK/DAMWON.png" width=40px height=21px></a><a>Damwon Gaming</a></td>
+  </table>
+
+  <table border=0 width=90%><thead><tr><th width=8%>Rank</th><th width=66%>Team</th><th width=8%>Win</th><th width=8%>Lose</th><th width=10%>Games</th></tr></thead>
+    {%for ranking in ranking %}
+    <tbody><tr><td align=center>{{forloop.counter}}</td><td>{{ranking.0}}</td><td align=center>{{ranking.1}}</td><td align=center>{{ranking.2}}</td><td align=center>{{ranking.5}}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+<div class="item2">
+  최근경기<br><br>
+  <table border=0 width=90%>
+    {% if schedule_list %}
+    <thead><tr align=left><th width=30%>Date</th><th width=20%>Home</th><th></th><th></th><th></th><th></th><th width=20%>Away</th></thead><tr></tr>
+    {%for schedule in schedule_list %}
+    <tbody>
+      <tr>
+        <td>{{ schedule.date }}</td><td>
+          {{ schedule.home}}</td><td>{{schedule.homescore}}</td><td>
+            {% if schedule.homescore == 2 %}승{% else %}패{% endif %}
+
+          </td><td align=center>
+            {% if schedule.awayscore == 2 %}승{% else %}패{% endif %}
+          </td><td>{{schedule.awayscore}}</td><td>{{ schedule.away}}</td></tr>
+
+    {% endfor %}
+  </tbody></table></ul>
+  {% else %}
+  <p>최근경기가 없습니다</p>
+  {% endif %}
+</tbody></table></ul>
+</div>
+<div class="item3">일정<br><br>
+  <table border=0 width=90%>
+    {% if schedule_remain %}
+    <thead><tr align=left><th width=30%>Date</th><th width=20%>Home</th><th></th><th></th><th></th><th></th><th width=20%>Away</th></thead><tr></tr>
+
+    {%for schedule in schedule_list %}
+    <tbody>
+      <tr>
+        <td>{{ schedule.date }}</td><td>
+          {{ schedule.home}}</td><td>{{schedule.homescore}}</td><td>
+            {% if schedule.homescore == 2 %}승{% else %}패{% endif %}
+
+          </td><td align=center>
+            {% if schedule.awayscore == 2 %}승{% else %}패{% endif %}
+          </td><td>{{schedule.awayscore}}</td><td>{{ schedule.away}}</td></tr>
+
+    {% endfor %}
+  </tbody></table></ul>
+  {% else %}
+  <p>일정이 없습니다</p>
+  {% endif %}
+</tbody></table></ul>
+</div>
+<div class="item4"></div>
+<div class="item5">선수기록<br>
+  <div class="gridcontents">
+    <div class="item1"><table>Kill<thead><tr><th>순위</th><th>선수</th><th></th></thead></tr>
+      {%for kill in kill_record %}
+      <tbody><tr><td>{{forloop.counter}}</td><td>{{kill.0}}</td><td>{{kill.1}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table></div>
+    <div class="item2"><table>Assist<thead><tr><th>순위</th><th>선수</th><th></th></thead></tr>
+      {%for assist in assist_record %}
+      <tbody><tr><td>{{forloop.counter}}</td><td>{{assist.0}}</td><td>{{assist.1}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table></div>
+    <div class="item3"><table><thead>Average Deal<tr><th>순위</th><th>선수</th><th></th></thead></tr>
+      {%for deal in avg_deal %}
+      <tbody><tr><td>{{forloop.counter}}</td><td>{{deal.0}}</td><td>{{deal.1}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table></div>
+    <div class="item4"><table>Vision Point<thead><tr><th>순위</th><th>선수</th><th></th></thead></tr>
+      {%for vision in avg_vision %}
+      <tbody><tr><td>{{forloop.counter}}</td><td>{{vision.0}}</td><td>{{vision.1}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table></div>
+    <div class="item5"><table>Solo Kill<thead><tr><th>순위</th><th>선수</th><th></th></thead></tr>
+      {%for solo_kill in solo_kill_record %}
+      <tbody><tr><td>{{forloop.counter}}</td><td>{{solo_kill.0}}</td><td>{{solo_kill.1}}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table></div>
+  </div>
+</div>
+<div class="item6">역대우승팀</div>
+
+</div>
+
+
+
+{% endblock %}
