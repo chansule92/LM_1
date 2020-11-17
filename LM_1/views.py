@@ -7,6 +7,11 @@ def index(request):
 
     return render(request, 'LM_1/index.html')
 
+def test(request):
+
+    return render(request, 'LM_1/test.html')
+
+
 def team_index(request):
 
     team_list = team.objects.order_by('-name')
@@ -16,8 +21,15 @@ def team_index(request):
 
 def team_detail(request, team_id):
 
+    cursor=connection.cursor()
+    player = "SELECT lm_1_game_detail.nick, count(lm_1_game_detail.nick) AS play, lm_1_player.team_id,lm_1_player.position,lm_1_player.nation from lm_1_game_detail join lm_1_player on lm_1_game_detail.nick=lm_1_player.nick group by nick;"
+    result=cursor.execute(player)
+    ranking= cursor.fetchall()
+    connection.commit()
+    connection.close()
+
     team_content = team.objects.get(id=team_id)
-    context = {'team_content': team_content}
+    context = {'team_content': team_content, 'player':player}
     return render(request, 'LM_1/team_detail.html', context)
 
 
@@ -40,8 +52,14 @@ def player_detail(request, player_id):
 
 def league_index(request):
 
-    team_list = team.objects.order_by('league').distinct()
-    context = {'team_list': team_list}
+    cursor=connection.cursor()
+    win = "SELECT team,Sum(win) AS win ,18-Sum(win) AS lose, count_win.count_win, lose.count_lose, count_win.count_win-lose.count_lose AS games  FROM(SELECT home AS team,count(home) AS win FROM loldb.lm_1_game_entire where homescore=2 GROUP BY home union all SELECT away AS team,count(away) AS win FROM loldb.lm_1_game_entire where awayscore=2 GROUP BY away) ad JOIN count_win ON ad.team=count_win.win_team JOIN lose ON ad.team=lose_team group by team order by -sum(win)"
+    result=cursor.execute(win)
+    ranking= cursor.fetchall()
+    connection.commit()
+    connection.close()
+
+    context = {'ranking': ranking,}
     return render(request, 'LM_1/league_list.html', context)
 
 def schedule_index(request):
