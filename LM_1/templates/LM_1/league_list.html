@@ -1,27 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-{% if team_list %}
-    <ul>
-      <table border=0 width=100%>
-      <thead><tr align=left><th >Name</th>
-      </thead><tr></tr><tr></tr><tr></tr>
-    {% for team in team_list %}
 
+<div class="gridcontents">
+<div class="item1"><h2>LCK</h2>
+  <table border=0 width=90%><thead><tr><th width=8%>Rank</th><th width=66%>Team</th><th width=8%>Win</th><th width=8%>Lose</th><th width=10%>Games</th></tr></thead>
+    {%for ranking in ranking %}
+    <tbody><tr><td align=center>{{forloop.counter}}</td><td>{{ranking.0}}</td><td align=center>{{ranking.1}}</td><td align=center>{{ranking.2}}</td><td align=center>{{ranking.5}}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table></div>
+<div class="item2"><h2>LPL</h2>준비중입니다.</div>
+<div class="item3"><h2>LEC</h2>준비중입니다.</div>
 
-    <tbody>
-      <tr>
-        <td>
-        {{ team.league }}</td>
-
-        </tr>
-
-
-    {% endfor %}
-  </tbody></table>
-    </ul>
-{% else %}
-    <p>질문이 없습니다.</p>
-{% endif %}
 </div>
+
+
 {% endblock %}
