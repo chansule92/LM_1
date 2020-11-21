@@ -15,7 +15,7 @@ class gameAdmin(admin.ModelAdmin):
 
 
 class game_detailAdmin(admin.ModelAdmin):
-    list_display = ['nick', 'champion', 'Kill', 'death','assist' ]
+    list_display = ['nick', 'champion', 'slay', 'death','assist' ]
     search_fields = ['nick', 'champion']
 
 

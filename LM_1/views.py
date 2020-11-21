@@ -21,12 +21,7 @@ def team_index(request):
 
 def team_detail(request, team_id):
     team_content = team.objects.get(id=team_id)
-    cursor=connection.cursor()
-    player = "SELECT lm_1_game_detail.nick, count(lm_1_game_detail.nick) AS play, lm_1_player.team_id,lm_1_player.position,lm_1_player.nation from lm_1_game_detail join lm_1_player on lm_1_game_detail.nick=lm_1_player.nick and lm_1_player.team_id=1 group by nick limit 5;"
-    result=cursor.execute(player)
-    ranking= cursor.fetchall()
-    connection.commit()
-    connection.close()
+    player=game_detail.objects.extra(tables=['lm_1_player'], where=['lm_1_player.nick=lm_1_game_detail.nick']).values_list('nick').filter(id=team_content.id).annotate(cont_play=Count('nick'))[:5]
 
     context = {'team_content': team_content, 'player':player}
     return render(request, 'LM_1/team_detail.html', context)
